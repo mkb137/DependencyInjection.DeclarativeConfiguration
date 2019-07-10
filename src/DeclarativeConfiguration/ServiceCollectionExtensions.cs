@@ -48,12 +48,13 @@ namespace Microsoft.Extensions.DependencyInjection.DeclarativeConfiguration {
 		}
 
 		/// <summary>
-		/// Enable declarative dependency injection.
+		/// Searches the given assemblies (or, if none is specified, the calling assembly) for types marked with the
+		/// <see cref="ServiceImplementationAttribute"/> and when found registers them with the service collection.
 		/// </summary>
 		/// <param name="serviceCollection">The service collection.</param>
 		/// <param name="assemblies">The assemblies to be searched for </param>
 		/// <returns></returns>
-		public static IServiceCollection ConfigureDependencies( this IServiceCollection serviceCollection, params Assembly[] assemblies ) {
+		public static IServiceCollection ConfigureDeclaratively( this IServiceCollection serviceCollection, params Assembly[] assemblies ) {
 			// If no assemblies were specified, use the calling assembly
 			if ( assemblies.Length == 0 ) {
 				assemblies = new[] { Assembly.GetCallingAssembly() };

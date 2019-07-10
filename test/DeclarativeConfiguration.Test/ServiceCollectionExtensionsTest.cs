@@ -33,7 +33,7 @@ namespace DeclarativeConfiguration.Test {
 				.Returns( wrappedServiceCollection.GetEnumerator() );
 
 			// Configure the service collection using attributes
-			var output = serviceCollection.Object.ConfigureDependencies();
+			var output = serviceCollection.Object.ConfigureDeclaratively();
 
 			// The same service collection should be returned
 			Assert.Same( output, serviceCollection.Object );
@@ -63,7 +63,7 @@ namespace DeclarativeConfiguration.Test {
 				.Returns( wrappedServiceCollection.GetEnumerator() );
 
 			// Configure the service collection using attributes
-			var output = serviceCollection.Object.ConfigureDependencies( typeof( One ).Assembly );
+			var output = serviceCollection.Object.ConfigureDeclaratively( typeof( One ).Assembly );
 
 			// The same service collection should be returned
 			Assert.Same( output, serviceCollection.Object );
